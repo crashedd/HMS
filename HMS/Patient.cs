@@ -30,7 +30,7 @@ namespace HMS
                     return;
                 }
 
-                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+                SqlConnection con = GlobalVars.con;
 
                 con.Open();
 

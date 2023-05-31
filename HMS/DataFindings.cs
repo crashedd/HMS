@@ -51,7 +51,7 @@ namespace HMS
         {
             panel4.Visible = false;
 
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+            SqlConnection con = GlobalVars.con;
             con.Open();
             SqlCommand cmm = new SqlCommand();
             cmm.Connection = con;
@@ -74,7 +74,7 @@ namespace HMS
                 Id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             }
             panel4.Visible = true;
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+            SqlConnection con = GlobalVars.con;
             con.Open();
             SqlCommand cmm = new SqlCommand();
             cmm.Connection = con;
@@ -120,7 +120,7 @@ namespace HMS
         }
         public void disp()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+            SqlConnection con = GlobalVars.con;
             con.Open();
             SqlCommand cmm = con.CreateCommand();
             cmm.CommandType = CommandType.Text;
@@ -185,7 +185,7 @@ namespace HMS
         {
             if (txtPName.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+                SqlConnection con = GlobalVars.con;
                 con.Open();
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
@@ -199,7 +199,7 @@ namespace HMS
             }
             else
             {
-                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+                SqlConnection con = GlobalVars.con;
                 con.Open();
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
