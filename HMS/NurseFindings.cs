@@ -23,7 +23,7 @@ namespace HMS
         {
             SqlConnection con = new SqlConnection("Data Source=DESKTOP-0AIDSV1\\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
 
-            con.Open();
+            if (con.State == ConnectionState.Closed) { con.Open(); }
 
             SqlCommand cmm = new SqlCommand("Update ptab Set temp=@temp, height=@height, bp=@bp, hr=@hr, weight=@weight, allergy=@allergy, [medical illnesses]=@medicalillnesses, [previous hospitalization]=@previoushospitalization, [needed specialization]=@neededspecialization where id=@id", con);
 

@@ -32,7 +32,7 @@ namespace HMS
 
                 SqlConnection con = GlobalVars.con;
 
-                con.Open();
+                if (con.State == ConnectionState.Closed) { con.Open(); }
 
                 SqlCommand cmm = new SqlCommand("Insert into ptab(Id, Name, Age, Gender, [Contact Number], [Blood Type], [Date of Birth], Address) Values(@id, @name, @age, @gender, @contactnumber, @bloodtype, @dateofbirth, @address)", con);
 

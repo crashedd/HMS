@@ -31,7 +31,7 @@ namespace HMS
 
                 SqlConnection con = GlobalVars.con;
 
-                con.Open();
+                if (con.State == ConnectionState.Closed) { con.Open(); }
 
                 SqlCommand cmm = new SqlCommand("Insert into ntab(Id, Name, Age, Gender, [Contact Number], Availability) Values(@id, @name, @age, @gender, @contactnumber, @availability)", con);
 

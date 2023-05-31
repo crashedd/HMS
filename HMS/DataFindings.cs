@@ -52,7 +52,7 @@ namespace HMS
             panel4.Visible = false;
 
             SqlConnection con = GlobalVars.con;
-            con.Open();
+            if (con.State == ConnectionState.Closed) { con.Open(); }
             SqlCommand cmm = new SqlCommand();
             cmm.Connection = con;
 
@@ -75,7 +75,7 @@ namespace HMS
             }
             panel4.Visible = true;
             SqlConnection con = GlobalVars.con;
-            con.Open();
+            if (con.State == ConnectionState.Closed) { con.Open(); }
             SqlCommand cmm = new SqlCommand();
             cmm.Connection = con;
 
@@ -121,7 +121,7 @@ namespace HMS
         public void disp()
         {
             SqlConnection con = GlobalVars.con;
-            con.Open();
+            if (con.State == ConnectionState.Closed) { con.Open(); }
             SqlCommand cmm = con.CreateCommand();
             cmm.CommandType = CommandType.Text;
             cmm.CommandText = "select * from ptab";
@@ -186,7 +186,7 @@ namespace HMS
             if (txtPName.Text != "")
             {
                 SqlConnection con = GlobalVars.con;
-                con.Open();
+                if (con.State == ConnectionState.Closed) { con.Open(); }
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
 
@@ -200,7 +200,7 @@ namespace HMS
             else
             {
                 SqlConnection con = GlobalVars.con;
-                con.Open();
+                if (con.State == ConnectionState.Closed) { con.Open(); }
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
 

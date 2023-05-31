@@ -9,6 +9,7 @@ namespace HMS
 {
     public static class GlobalVars
     {
-        public static SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+        public static SqlConnection con = new SqlConnection(@"Data Source=(local)\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+        
     }
 }
