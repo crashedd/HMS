@@ -29,9 +29,9 @@ namespace HMS
                     return;
                 }
 
-                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+                SqlConnection con = GlobalVars.con;
 
-                con.Open();
+                if (con.State == ConnectionState.Closed) { con.Open(); }
 
                 SqlCommand cmm = new SqlCommand("Insert into dtab(DId, Name, Age, Gender, [Contact Number], Experience, Specialization, Availability, [Room Number], [Floor Number], [Patient Load]) Values(@Did, @name, @age, @gender, @contactnumber, @experience, @specialization, @availability, @roomnumber, @floornumber, 0)", con);
 
@@ -50,6 +50,9 @@ namespace HMS
 
                 con.Close();
 
+
+                DoctorClass doc = new DoctorClass(int.Parse(txtDId.Text), txtName.Text, int.Parse(txtAge.Text), cmbGender.Text, txtCN.Text, txtExp.Text, cmbSpecialization.Text);
+                GlobalVars.Record(doc);
                 MessageBox.Show("Data inserted successfully!");
 
                 txtDId.Clear();

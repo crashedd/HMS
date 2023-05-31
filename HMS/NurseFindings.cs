@@ -21,9 +21,9 @@ namespace HMS
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-0AIDSV1\\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+            SqlConnection con = GlobalVars.con;
 
-            con.Open();
+            if (con.State == ConnectionState.Closed) { con.Open(); }
 
             SqlCommand cmm = new SqlCommand("Update ptab Set temp=@temp, height=@height, bp=@bp, hr=@hr, weight=@weight, allergy=@allergy, [medical illnesses]=@medicalillnesses, [previous hospitalization]=@previoushospitalization, [needed specialization]=@neededspecialization where id=@id", con);
 
@@ -88,6 +88,11 @@ namespace HMS
             this.Hide();
             DataFindings df = new DataFindings();
             df.Show();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

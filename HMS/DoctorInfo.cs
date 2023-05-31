@@ -18,6 +18,8 @@ namespace HMS
             InitializeComponent();
         }
 
+        DoctorClass currentDoctor = null;
+
         private void btnDRegistration_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -36,8 +38,8 @@ namespace HMS
         {
             panel4.Visible = false;
 
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
-            con.Open();
+            SqlConnection con = GlobalVars.con;
+            if (con.State == ConnectionState.Closed) { con.Open(); }
             SqlCommand cmm = new SqlCommand();
             cmm.Connection = con;
 
@@ -53,41 +55,54 @@ namespace HMS
         Int64 rowid;
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
                 Id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                panel4.Visible = true;
+                SqlConnection con = GlobalVars.con;
+                if (con.State == ConnectionState.Closed) { con.Open(); }
+                SqlCommand cmm = new SqlCommand();
+                cmm.Connection = con;
+
+                cmm.CommandText = "select * from dtab where DId=" + Id + "";
+                SqlDataAdapter dap = new SqlDataAdapter(cmm);
+                DataSet ds = new DataSet();
+                dap.Fill(ds);
+
+                rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
+
+                txtDId.Text = ds.Tables[0].Rows[0][0].ToString();
+                txtName.Text = ds.Tables[0].Rows[0][1].ToString();
+                txtAge.Text = ds.Tables[0].Rows[0][2].ToString();
+                cmbGender.Text = ds.Tables[0].Rows[0][3].ToString();
+                txtCN.Text = ds.Tables[0].Rows[0][4].ToString();
+                txtExp.Text = ds.Tables[0].Rows[0][5].ToString();
+                cmbSpecialization.Text = ds.Tables[0].Rows[0][6].ToString();
+                cmbAva.Text = ds.Tables[0].Rows[0][7].ToString();
+                txtRN.Text = ds.Tables[0].Rows[0][8].ToString();
+                txtFN.Text = ds.Tables[0].Rows[0][9].ToString();
+
+                currentDoctor = GlobalVars.FindDoctor(int.Parse(txtDId.Text));
+                if (currentDoctor == null)
+                {
+                    DoctorClass newDoc = new DoctorClass(int.Parse(txtDId.Text), txtName.Text, int.Parse(txtAge.Text), cmbGender.Text, txtCN.Text, txtExp.Text, cmbSpecialization.Text);
+                    GlobalVars.Record(newDoc);
+                    currentDoctor = newDoc;
+                }
+            } 
+            catch (Exception)
+            {
+            
             }
-            panel4.Visible = true;
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
-            con.Open();
-            SqlCommand cmm = new SqlCommand();
-            cmm.Connection = con;
-
-            cmm.CommandText = "select * from dtab where DId=" + Id + "";
-            SqlDataAdapter dap = new SqlDataAdapter(cmm);
-            DataSet ds = new DataSet();
-            dap.Fill(ds);
-
-            rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
-
-            txtDId.Text = ds.Tables[0].Rows[0][0].ToString();
-            txtName.Text = ds.Tables[0].Rows[0][1].ToString();
-            txtAge.Text = ds.Tables[0].Rows[0][2].ToString();
-            cmbGender.Text = ds.Tables[0].Rows[0][3].ToString();
-            txtCN.Text = ds.Tables[0].Rows[0][4].ToString();
-            txtExp.Text = ds.Tables[0].Rows[0][5].ToString();
-            cmbSpecialization.Text = ds.Tables[0].Rows[0][6].ToString();
-            cmbAva.Text = ds.Tables[0].Rows[0][7].ToString();
-            txtRN.Text = ds.Tables[0].Rows[0][8].ToString();
-            txtFN.Text = ds.Tables[0].Rows[0][9].ToString();
         }
 
         private void txtNAva_TextChanged(object sender, EventArgs e)
         {
             if (txtNAva.Text != "")
             {
-                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
-                con.Open();
+                SqlConnection con = GlobalVars.con;
+                if (con.State == ConnectionState.Closed) { con.Open(); }
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
 
@@ -100,8 +115,8 @@ namespace HMS
             }
             else
             {
-                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
-                con.Open();
+                SqlConnection con = GlobalVars.con;
+                if (con.State == ConnectionState.Closed) { con.Open(); }
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
 
@@ -122,8 +137,8 @@ namespace HMS
 
         public void disp()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-0AIDSV1\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
-            con.Open();
+            SqlConnection con = GlobalVars.con;
+            if (con.State == ConnectionState.Closed) { con.Open(); }
             SqlCommand cmm = con.CreateCommand();
             cmm.CommandType = CommandType.Text;
             cmm.CommandText = "select * from dtab";
@@ -155,9 +170,9 @@ namespace HMS
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
             if (MessageBox.Show("Data will be updated. Confirm?", "Success", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-
                 string cn = new string(txtCN.Text.Trim().Replace("-", "").Replace("(", "").Replace(")", "").Where(char.IsDigit).ToArray());
                 if (cn.Length != 11)
                 {
@@ -176,8 +191,8 @@ namespace HMS
                 String rn = txtRN.Text;
                 String fn = txtFN.Text;
 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = ("Data Source=DESKTOP-0AIDSV1\\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+                currentDoctor.UpdateInfo(int.Parse(txtDId.Text), txtName.Text, int.Parse(txtAge.Text), cmbGender.Text, txtCN.Text, txtExp.Text, cmbSpecialization.Text);
+                SqlConnection con = GlobalVars.con;
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
 
@@ -208,8 +223,7 @@ namespace HMS
             if (MessageBox.Show("Data will be deleted. Confirm?", "Confirmation Dialog", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = ("Data Source=DESKTOP-0AIDSV1\\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+                SqlConnection con = GlobalVars.con;
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
 
@@ -235,7 +249,7 @@ namespace HMS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            panel4.Visible = false;
+            this.Close();
         }
     }
 }

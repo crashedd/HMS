@@ -81,18 +81,20 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(289, 42);
+            this.panel3.Location = new System.Drawing.Point(193, 27);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1070, 38);
+            this.panel3.Size = new System.Drawing.Size(713, 25);
             this.panel3.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(448, 0);
+            this.label2.Location = new System.Drawing.Point(299, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(207, 38);
+            this.label2.Size = new System.Drawing.Size(138, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "F I N D I N G S\r\n";
             // 
@@ -100,9 +102,10 @@
             // 
             this.btnMin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMin.BackgroundImage")));
             this.btnMin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnMin.Location = new System.Drawing.Point(1297, 8);
+            this.btnMin.Location = new System.Drawing.Point(865, 5);
+            this.btnMin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMin.Name = "btnMin";
-            this.btnMin.Size = new System.Drawing.Size(28, 28);
+            this.btnMin.Size = new System.Drawing.Size(19, 18);
             this.btnMin.TabIndex = 20;
             this.btnMin.UseVisualStyleBackColor = true;
             this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
@@ -111,9 +114,10 @@
             // 
             this.btnExit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExit.BackgroundImage")));
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnExit.Location = new System.Drawing.Point(1331, 8);
+            this.btnExit.Location = new System.Drawing.Point(887, 5);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(28, 28);
+            this.btnExit.Size = new System.Drawing.Size(19, 18);
             this.btnExit.TabIndex = 21;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -121,9 +125,10 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(813, 603);
+            this.btnSave.Location = new System.Drawing.Point(542, 392);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(87, 32);
+            this.btnSave.Size = new System.Drawing.Size(58, 21);
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -132,12 +137,14 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(936, 603);
+            this.btnCancel.Location = new System.Drawing.Point(624, 392);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(87, 32);
+            this.btnCancel.Size = new System.Drawing.Size(58, 21);
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel4
             // 
@@ -166,9 +173,10 @@
             this.panel4.Controls.Add(this.btnCancel);
             this.panel4.Controls.Add(this.btnSave);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(289, 86);
+            this.panel4.Location = new System.Drawing.Point(193, 56);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1070, 671);
+            this.panel4.Size = new System.Drawing.Size(713, 436);
             this.panel4.TabIndex = 5;
             // 
             // cmbNS
@@ -184,100 +192,113 @@
             "Ophthalmology",
             "Orthopedic Surgery",
             "Urology"});
-            this.cmbNS.Location = new System.Drawing.Point(303, 524);
+            this.cmbNS.Location = new System.Drawing.Point(202, 341);
+            this.cmbNS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbNS.Name = "cmbNS";
-            this.cmbNS.Size = new System.Drawing.Size(244, 28);
+            this.cmbNS.Size = new System.Drawing.Size(164, 21);
             this.cmbNS.TabIndex = 41;
             // 
             // txtPrev
             // 
-            this.txtPrev.Location = new System.Drawing.Point(430, 383);
+            this.txtPrev.Location = new System.Drawing.Point(287, 249);
+            this.txtPrev.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPrev.Name = "txtPrev";
-            this.txtPrev.Size = new System.Drawing.Size(357, 26);
+            this.txtPrev.Size = new System.Drawing.Size(239, 20);
             this.txtPrev.TabIndex = 40;
             // 
             // txtMI
             // 
-            this.txtMI.Location = new System.Drawing.Point(793, 294);
+            this.txtMI.Location = new System.Drawing.Point(529, 191);
+            this.txtMI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMI.Name = "txtMI";
-            this.txtMI.Size = new System.Drawing.Size(213, 26);
+            this.txtMI.Size = new System.Drawing.Size(143, 20);
             this.txtMI.TabIndex = 39;
             // 
             // txtAllergy
             // 
-            this.txtAllergy.Location = new System.Drawing.Point(157, 294);
+            this.txtAllergy.Location = new System.Drawing.Point(105, 191);
+            this.txtAllergy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAllergy.Name = "txtAllergy";
-            this.txtAllergy.Size = new System.Drawing.Size(205, 26);
+            this.txtAllergy.Size = new System.Drawing.Size(138, 20);
             this.txtAllergy.TabIndex = 38;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(60, 56);
+            this.label15.Location = new System.Drawing.Point(40, 36);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(108, 28);
+            this.label15.Size = new System.Drawing.Size(77, 19);
             this.label15.TabIndex = 37;
             this.label15.Text = "Patient Id:";
             // 
             // txtWeight
             // 
-            this.txtWeight.Location = new System.Drawing.Point(865, 153);
+            this.txtWeight.Location = new System.Drawing.Point(577, 99);
+            this.txtWeight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(141, 26);
+            this.txtWeight.Size = new System.Drawing.Size(95, 20);
             this.txtWeight.TabIndex = 36;
             // 
             // txtHR
             // 
-            this.txtHR.Location = new System.Drawing.Point(472, 153);
+            this.txtHR.Location = new System.Drawing.Point(315, 99);
+            this.txtHR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtHR.Name = "txtHR";
-            this.txtHR.Size = new System.Drawing.Size(148, 26);
+            this.txtHR.Size = new System.Drawing.Size(100, 20);
             this.txtHR.TabIndex = 35;
             // 
             // txtBP
             // 
-            this.txtBP.Location = new System.Drawing.Point(108, 153);
+            this.txtBP.Location = new System.Drawing.Point(72, 99);
+            this.txtBP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBP.Name = "txtBP";
-            this.txtBP.Size = new System.Drawing.Size(135, 26);
+            this.txtBP.Size = new System.Drawing.Size(91, 20);
             this.txtBP.TabIndex = 34;
             // 
             // txtHeight
             // 
-            this.txtHeight.Location = new System.Drawing.Point(865, 56);
+            this.txtHeight.Location = new System.Drawing.Point(577, 36);
+            this.txtHeight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(141, 26);
+            this.txtHeight.Size = new System.Drawing.Size(95, 20);
             this.txtHeight.TabIndex = 33;
             // 
             // txtTemp
             // 
-            this.txtTemp.Location = new System.Drawing.Point(501, 56);
+            this.txtTemp.Location = new System.Drawing.Point(334, 36);
+            this.txtTemp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTemp.Name = "txtTemp";
-            this.txtTemp.Size = new System.Drawing.Size(119, 26);
+            this.txtTemp.Size = new System.Drawing.Size(81, 20);
             this.txtTemp.TabIndex = 32;
             // 
             // txtPId
             // 
-            this.txtPId.Location = new System.Drawing.Point(174, 60);
+            this.txtPId.Location = new System.Drawing.Point(116, 39);
+            this.txtPId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPId.Name = "txtPId";
-            this.txtPId.Size = new System.Drawing.Size(135, 26);
+            this.txtPId.Size = new System.Drawing.Size(91, 20);
             this.txtPId.TabIndex = 31;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.LightGray;
             this.panel6.Controls.Add(this.label13);
-            this.panel6.Location = new System.Drawing.Point(25, 450);
+            this.panel6.Location = new System.Drawing.Point(17, 292);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1024, 31);
+            this.panel6.Size = new System.Drawing.Size(683, 20);
             this.panel6.TabIndex = 26;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(385, 0);
+            this.label13.Location = new System.Drawing.Point(257, 0);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(276, 30);
+            this.label13.Size = new System.Drawing.Size(190, 20);
             this.label13.TabIndex = 24;
             this.label13.Text = "NEEDED SPECIALIZATION";
             // 
@@ -285,9 +306,10 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(604, 290);
+            this.label12.Location = new System.Drawing.Point(403, 188);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(183, 28);
+            this.label12.Size = new System.Drawing.Size(128, 19);
             this.label12.TabIndex = 29;
             this.label12.Text = "Medical Illnesses: ";
             // 
@@ -295,9 +317,10 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(60, 379);
+            this.label11.Location = new System.Drawing.Point(40, 246);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(364, 28);
+            this.label11.Size = new System.Drawing.Size(257, 19);
             this.label11.TabIndex = 28;
             this.label11.Text = "Previous Medication/Hospitalization:";
             // 
@@ -305,9 +328,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(60, 290);
+            this.label10.Location = new System.Drawing.Point(40, 188);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 28);
+            this.label10.Size = new System.Drawing.Size(66, 19);
             this.label10.TabIndex = 27;
             this.label10.Text = "Allergy: ";
             // 
@@ -315,9 +339,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(60, 520);
+            this.label9.Location = new System.Drawing.Point(40, 338);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(228, 28);
+            this.label9.Size = new System.Drawing.Size(163, 19);
             this.label9.TabIndex = 26;
             this.label9.Text = "Needed Specialization:";
             // 
@@ -325,9 +350,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(778, 149);
+            this.label3.Location = new System.Drawing.Point(519, 97);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 28);
+            this.label3.Size = new System.Drawing.Size(61, 19);
             this.label3.TabIndex = 23;
             this.label3.Text = "Weight:";
             // 
@@ -335,9 +361,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(778, 52);
+            this.label7.Location = new System.Drawing.Point(519, 34);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 28);
+            this.label7.Size = new System.Drawing.Size(58, 19);
             this.label7.TabIndex = 22;
             this.label7.Text = "Height:";
             // 
@@ -345,9 +372,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(421, 52);
+            this.label6.Location = new System.Drawing.Point(281, 34);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 28);
+            this.label6.Size = new System.Drawing.Size(54, 19);
             this.label6.TabIndex = 21;
             this.label6.Text = "Temp: ";
             // 
@@ -355,9 +383,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(421, 149);
+            this.label5.Location = new System.Drawing.Point(281, 97);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 28);
+            this.label5.Size = new System.Drawing.Size(33, 19);
             this.label5.TabIndex = 20;
             this.label5.Text = "HR:";
             // 
@@ -365,9 +394,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(60, 149);
+            this.label4.Location = new System.Drawing.Point(40, 97);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 28);
+            this.label4.Size = new System.Drawing.Size(31, 19);
             this.label4.TabIndex = 19;
             this.label4.Text = "BP:";
             // 
@@ -375,18 +405,20 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.LightGray;
             this.panel5.Controls.Add(this.label8);
-            this.panel5.Location = new System.Drawing.Point(25, 223);
+            this.panel5.Location = new System.Drawing.Point(17, 145);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1024, 31);
+            this.panel5.Size = new System.Drawing.Size(683, 20);
             this.panel5.TabIndex = 25;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Nirmala UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(425, 0);
+            this.label8.Location = new System.Drawing.Point(283, 0);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(207, 30);
+            this.label8.Size = new System.Drawing.Size(141, 20);
             this.label8.TabIndex = 24;
             this.label8.Text = "MEDICAL HISTORY\r\n";
             // 
@@ -401,17 +433,19 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(283, 769);
+            this.panel1.Size = new System.Drawing.Size(189, 500);
             this.panel1.TabIndex = 22;
             // 
             // btnDF
             // 
             this.btnDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.btnDF.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDF.Location = new System.Drawing.Point(-1, 512);
+            this.btnDF.Location = new System.Drawing.Point(-1, 333);
+            this.btnDF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDF.Name = "btnDF";
-            this.btnDF.Size = new System.Drawing.Size(283, 60);
+            this.btnDF.Size = new System.Drawing.Size(189, 39);
             this.btnDF.TabIndex = 25;
             this.btnDF.Text = "DATA FINDINGS";
             this.btnDF.UseVisualStyleBackColor = false;
@@ -421,9 +455,10 @@
             // 
             this.btnFindings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(209)))), ((int)(((byte)(151)))));
             this.btnFindings.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFindings.Location = new System.Drawing.Point(-1, 456);
+            this.btnFindings.Location = new System.Drawing.Point(-1, 296);
+            this.btnFindings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFindings.Name = "btnFindings";
-            this.btnFindings.Size = new System.Drawing.Size(283, 60);
+            this.btnFindings.Size = new System.Drawing.Size(189, 39);
             this.btnFindings.TabIndex = 20;
             this.btnFindings.Text = "NURSE FINDINGS";
             this.btnFindings.UseVisualStyleBackColor = false;
@@ -432,9 +467,10 @@
             // btnNinfo
             // 
             this.btnNinfo.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNinfo.Location = new System.Drawing.Point(-2, 399);
+            this.btnNinfo.Location = new System.Drawing.Point(-1, 259);
+            this.btnNinfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNinfo.Name = "btnNinfo";
-            this.btnNinfo.Size = new System.Drawing.Size(283, 60);
+            this.btnNinfo.Size = new System.Drawing.Size(189, 39);
             this.btnNinfo.TabIndex = 4;
             this.btnNinfo.Text = "NURSE INFORMATION";
             this.btnNinfo.UseVisualStyleBackColor = true;
@@ -445,9 +481,10 @@
             this.btnNRegistration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(249)))));
             this.btnNRegistration.FlatAppearance.BorderSize = 0;
             this.btnNRegistration.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNRegistration.Location = new System.Drawing.Point(-1, 339);
+            this.btnNRegistration.Location = new System.Drawing.Point(-1, 220);
+            this.btnNRegistration.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNRegistration.Name = "btnNRegistration";
-            this.btnNRegistration.Size = new System.Drawing.Size(283, 60);
+            this.btnNRegistration.Size = new System.Drawing.Size(189, 39);
             this.btnNRegistration.TabIndex = 3;
             this.btnNRegistration.Text = "NURSE\'S REGISTRATION";
             this.btnNRegistration.UseVisualStyleBackColor = false;
@@ -460,17 +497,19 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(282, 253);
+            this.panel2.Size = new System.Drawing.Size(188, 165);
             this.panel2.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(110, 212);
+            this.label1.Location = new System.Drawing.Point(73, 138);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 21);
+            this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "admin";
             // 
@@ -478,20 +517,21 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(57, 40);
+            this.pictureBox1.Location = new System.Drawing.Point(38, 26);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(167, 156);
+            this.pictureBox1.Size = new System.Drawing.Size(111, 101);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // NurseFindings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1371, 769);
+            this.ClientSize = new System.Drawing.Size(914, 500);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnMin);
@@ -499,6 +539,7 @@
             this.Controls.Add(this.panel3);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "NurseFindings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NurseFindings";
