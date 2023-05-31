@@ -18,6 +18,8 @@ namespace HMS
             InitializeComponent();
         }
 
+        DoctorClass currentDoctor = null;
+
         private void btnDRegistration_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -80,6 +82,14 @@ namespace HMS
                 cmbAva.Text = ds.Tables[0].Rows[0][7].ToString();
                 txtRN.Text = ds.Tables[0].Rows[0][8].ToString();
                 txtFN.Text = ds.Tables[0].Rows[0][9].ToString();
+
+                currentDoctor = GlobalVars.FindDoctor(int.Parse(txtDId.Text));
+                if (currentDoctor == null)
+                {
+                    DoctorClass newDoc = new DoctorClass(int.Parse(txtDId.Text), txtName.Text, int.Parse(txtAge.Text), cmbGender.Text, txtCN.Text, txtExp.Text, cmbSpecialization.Text);
+                    GlobalVars.Record(newDoc);
+                    currentDoctor = newDoc;
+                }
             } 
             catch (Exception)
             {
@@ -160,9 +170,9 @@ namespace HMS
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
             if (MessageBox.Show("Data will be updated. Confirm?", "Success", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-
                 string cn = new string(txtCN.Text.Trim().Replace("-", "").Replace("(", "").Replace(")", "").Where(char.IsDigit).ToArray());
                 if (cn.Length != 11)
                 {
@@ -181,6 +191,7 @@ namespace HMS
                 String rn = txtRN.Text;
                 String fn = txtFN.Text;
 
+                currentDoctor.UpdateInfo(int.Parse(txtDId.Text), txtName.Text, int.Parse(txtAge.Text), cmbGender.Text, txtCN.Text, txtExp.Text, cmbSpecialization.Text);
                 SqlConnection con = GlobalVars.con;
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
@@ -238,7 +249,7 @@ namespace HMS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            panel4.Visible = false;
+            this.Close();
         }
     }
 }

@@ -50,6 +50,9 @@ namespace HMS
 
                 con.Close();
 
+
+                DoctorClass doc = new DoctorClass(int.Parse(txtDId.Text), txtName.Text, int.Parse(txtAge.Text), cmbGender.Text, txtCN.Text, txtExp.Text, cmbSpecialization.Text);
+                GlobalVars.Record(doc);
                 MessageBox.Show("Data inserted successfully!");
 
                 txtDId.Clear();

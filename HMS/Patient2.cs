@@ -38,35 +38,39 @@ namespace HMS
         Int64 rowid;
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                Id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    Id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                }
+                panel4.Visible = true;
+                SqlConnection con = GlobalVars.con;
+                if (con.State == ConnectionState.Closed)
+                {
+                    if (con.State == ConnectionState.Closed) { con.Open(); }
+                }
+                SqlCommand cmm = new SqlCommand();
+                cmm.Connection = con;
+
+                cmm.CommandText = "select * from ptab where Id=" + Id + "";
+                SqlDataAdapter dap = new SqlDataAdapter(cmm);
+                DataSet ds = new DataSet();
+                dap.Fill(ds);
+
+                rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
+
+                txtId.Text = ds.Tables[0].Rows[0][0].ToString();
+                txtName.Text = ds.Tables[0].Rows[0][1].ToString();
+                txtAge.Text = ds.Tables[0].Rows[0][2].ToString();
+                cmbGender.Text = ds.Tables[0].Rows[0][3].ToString();
+                txtDOB.Text = ds.Tables[0].Rows[0][4].ToString();
+                cmbBT.Text = ds.Tables[0].Rows[0][5].ToString();
+                txtCN.Text = ds.Tables[0].Rows[0][6].ToString();
+                txtAddress.Text = ds.Tables[0].Rows[0][7].ToString();
+                txtDId.Text = ds.Tables[0].Rows[0][17].ToString();
             }
-            panel4.Visible = true;
-            SqlConnection con = GlobalVars.con;
-            if (con.State == ConnectionState.Closed)
-            {
-                if (con.State == ConnectionState.Closed) { con.Open(); }
-            }
-            SqlCommand cmm = new SqlCommand();
-            cmm.Connection = con;
-
-            cmm.CommandText = "select * from ptab where Id="+Id+"";
-            SqlDataAdapter dap = new SqlDataAdapter(cmm);
-            DataSet ds = new DataSet();
-            dap.Fill(ds);
-
-            rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
-
-            txtId.Text = ds.Tables[0].Rows[0][0].ToString();
-            txtName.Text = ds.Tables[0].Rows[0][1].ToString();
-            txtAge.Text = ds.Tables[0].Rows[0][2].ToString();
-            cmbGender.Text = ds.Tables[0].Rows[0][3].ToString();
-            txtDOB.Text = ds.Tables[0].Rows[0][4].ToString();
-            cmbBT.Text = ds.Tables[0].Rows[0][5].ToString();
-            txtCN.Text = ds.Tables[0].Rows[0][6].ToString();
-            txtAddress.Text = ds.Tables[0].Rows[0][7].ToString();
-            txtDId.Text = ds.Tables[0].Rows[0][17].ToString();
+            catch { }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -138,42 +142,35 @@ namespace HMS
                 cmm.Connection = con;
 
                 //Test
-                string columnName = "Patient Load";
-                string tableName = "dtab";
-                int rowId = 9; // Assuming the row ID you want to update is 1
-
-                // Check if the column exists in the table
-                string checkColumnQuery = $"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{tableName}' AND COLUMN_NAME = '{columnName}'";
-                SqlCommand checkColumnCommand = new SqlCommand(checkColumnQuery, con);
-                object columnExists = checkColumnCommand.ExecuteScalar();
-
-                if (columnExists != null)
+                if (doctorid != "")
                 {
-                    // Column exists, so increment its value in the specified row
-                    string updateQuery = $"UPDATE {tableName} SET {columnName} = {columnName} + 1 WHERE id = {rowId}";
-                    SqlCommand updateCommand = new SqlCommand(updateQuery, con);
-                    int rowsAffected = updateCommand.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
+                    DoctorClass curDoctor = GlobalVars.FindDoctor(int.Parse(doctorid));
+                    if (curDoctor != null)
                     {
-                        // Update successful
-                        MessageBox.Show("Column value incremented.");
+                        if(curDoctor.IncrementLoad())
+                        {
+                            cmm.CommandText = "update ptab set Id='" + id + "', Name='" + name + "', Age='" + age + "', Gender= '" + gender + "', [Date of Birth]='" + dateofbirth + "', [Blood Type]='" + bloodtype + "', [Contact Number]='" + contactnumber + "', Address='" + address + "', [Doctor's Id]='" + doctorid + "' where Id=" + rowid + "";
+                            string updateCommand = "UPDATE dtab SET [Patient Load] = " + curDoctor.patientLoad.ToString() + "WHERE DId = " + curDoctor.DId.ToString();
+                            using (SqlCommand com = new SqlCommand(updateCommand, con))
+                            {
+                                com.ExecuteNonQuery();
+                            }
+                        }
+                        else
+                        {
+                            cmm.CommandText = "update ptab set Id='" + id + "', Name='" + name + "', Age='" + age + "', Gender= '" + gender + "', [Date of Birth]='" + dateofbirth + "', [Blood Type]='" + bloodtype + "', [Contact Number]='" + contactnumber + "', Address='" + address + "' where Id=" + rowid + "";
+                            MessageBox.Show("That doctor is currently overloaded.");
+                        }
                     }
                     else
                     {
-                        // Row ID not found
-                        MessageBox.Show("Row ID not found in the table.");
+                        cmm.CommandText = "update ptab set Id='" + id + "', Name='" + name + "', Age='" + age + "', Gender= '" + gender + "', [Date of Birth]='" + dateofbirth + "', [Blood Type]='" + bloodtype + "', [Contact Number]='" + contactnumber + "', Address='" + address + "' where Id=" + rowid + "";
+                        MessageBox.Show("That doctor does not exist.");
                     }
                 }
-                else
-                {
-                    // Column does not exist
-                    MessageBox.Show("Column does not exist in the table.");
-                }
-
                 //Test
 
-                cmm.CommandText = "update ptab set Id='" + id + "', Name='" + name + "', Age='" + age + "', Gender= '"+gender+"', [Date of Birth]='" + dateofbirth + "', [Blood Type]='" + bloodtype + "', [Contact Number]='" + contactnumber + "', Address='" + address + "', [Doctor's Id]='"+doctorid+"' where Id=" + rowid + "";
+                
                 SqlDataAdapter dap = new SqlDataAdapter(cmm);
                 DataSet ds = new DataSet();
                 dap.Fill(ds);

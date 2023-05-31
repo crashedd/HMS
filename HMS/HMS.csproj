@@ -91,6 +91,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoctorClass.cs" />
     <Compile Include="GlobalVars.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
