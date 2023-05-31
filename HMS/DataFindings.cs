@@ -139,8 +139,7 @@ namespace HMS
             if (MessageBox.Show("Data will be deleted. Confirm?", "Confirmation Dialog", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = ("Data Source=DESKTOP-0AIDSV1\\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+                SqlConnection con = GlobalVars.con;
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
 
@@ -228,8 +227,7 @@ namespace HMS
                 String prevhospitalization = txtPrev.Text;
                 String ns = cmbNS.Text;
 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = ("Data Source=DESKTOP-0AIDSV1\\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+                SqlConnection con = GlobalVars.con;
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
 

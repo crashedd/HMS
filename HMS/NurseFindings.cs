@@ -21,7 +21,7 @@ namespace HMS
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=DESKTOP-0AIDSV1\\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+            SqlConnection con = GlobalVars.con;
 
             if (con.State == ConnectionState.Closed) { con.Open(); }
 
@@ -88,6 +88,11 @@ namespace HMS
             this.Hide();
             DataFindings df = new DataFindings();
             df.Show();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

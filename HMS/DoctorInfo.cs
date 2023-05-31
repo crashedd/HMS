@@ -53,33 +53,38 @@ namespace HMS
         Int64 rowid;
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
                 Id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                panel4.Visible = true;
+                SqlConnection con = GlobalVars.con;
+                if (con.State == ConnectionState.Closed) { con.Open(); }
+                SqlCommand cmm = new SqlCommand();
+                cmm.Connection = con;
+
+                cmm.CommandText = "select * from dtab where DId=" + Id + "";
+                SqlDataAdapter dap = new SqlDataAdapter(cmm);
+                DataSet ds = new DataSet();
+                dap.Fill(ds);
+
+                rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
+
+                txtDId.Text = ds.Tables[0].Rows[0][0].ToString();
+                txtName.Text = ds.Tables[0].Rows[0][1].ToString();
+                txtAge.Text = ds.Tables[0].Rows[0][2].ToString();
+                cmbGender.Text = ds.Tables[0].Rows[0][3].ToString();
+                txtCN.Text = ds.Tables[0].Rows[0][4].ToString();
+                txtExp.Text = ds.Tables[0].Rows[0][5].ToString();
+                cmbSpecialization.Text = ds.Tables[0].Rows[0][6].ToString();
+                cmbAva.Text = ds.Tables[0].Rows[0][7].ToString();
+                txtRN.Text = ds.Tables[0].Rows[0][8].ToString();
+                txtFN.Text = ds.Tables[0].Rows[0][9].ToString();
+            } 
+            catch (Exception)
+            {
+            
             }
-            panel4.Visible = true;
-            SqlConnection con = GlobalVars.con;
-            if (con.State == ConnectionState.Closed) { con.Open(); }
-            SqlCommand cmm = new SqlCommand();
-            cmm.Connection = con;
-
-            cmm.CommandText = "select * from dtab where DId=" + Id + "";
-            SqlDataAdapter dap = new SqlDataAdapter(cmm);
-            DataSet ds = new DataSet();
-            dap.Fill(ds);
-
-            rowid = Int64.Parse(ds.Tables[0].Rows[0][0].ToString());
-
-            txtDId.Text = ds.Tables[0].Rows[0][0].ToString();
-            txtName.Text = ds.Tables[0].Rows[0][1].ToString();
-            txtAge.Text = ds.Tables[0].Rows[0][2].ToString();
-            cmbGender.Text = ds.Tables[0].Rows[0][3].ToString();
-            txtCN.Text = ds.Tables[0].Rows[0][4].ToString();
-            txtExp.Text = ds.Tables[0].Rows[0][5].ToString();
-            cmbSpecialization.Text = ds.Tables[0].Rows[0][6].ToString();
-            cmbAva.Text = ds.Tables[0].Rows[0][7].ToString();
-            txtRN.Text = ds.Tables[0].Rows[0][8].ToString();
-            txtFN.Text = ds.Tables[0].Rows[0][9].ToString();
         }
 
         private void txtNAva_TextChanged(object sender, EventArgs e)
@@ -176,8 +181,7 @@ namespace HMS
                 String rn = txtRN.Text;
                 String fn = txtFN.Text;
 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = ("Data Source=DESKTOP-0AIDSV1\\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+                SqlConnection con = GlobalVars.con;
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
 
@@ -208,8 +212,7 @@ namespace HMS
             if (MessageBox.Show("Data will be deleted. Confirm?", "Confirmation Dialog", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = ("Data Source=DESKTOP-0AIDSV1\\SQLEXPRESS;Initial Catalog=hosysdb;Integrated Security=True");
+                SqlConnection con = GlobalVars.con;
                 SqlCommand cmm = new SqlCommand();
                 cmm.Connection = con;
 
